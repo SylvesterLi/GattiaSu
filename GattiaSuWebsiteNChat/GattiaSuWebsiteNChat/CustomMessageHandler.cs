@@ -32,7 +32,7 @@ namespace GattiaSuWebsiteNChat
             //在这里可以返回各种各样的消息给客户。详情参见博客
 
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>(); //ResponseMessageText也可以是News等其他类型
-            responseMessage.Content = "欢迎来到佳蒂亚树！\r\n" + "访问博客点击：http://wicrosoft.ml" + "\r\n\r\n" + "查询家中实况请输入“家”" + "\r\n" + "查找我的车请发送“车”\r\n" + "改变日常洗浴习惯请发送“换”" + "发送其他消息默认接入智能QnA Bot！\r\n 这条消息来自DefaultResponseMessage。";
+            responseMessage.Content = "欢迎来到佳蒂亚树！\r\n" + "访问博客点击：http://wicrosoft.ml" + "\r\n\r\n" + "Gattia Su是游戏《彩虹岛》海龙王的侍女，其BGM佳蒂亚树也相当好听。" + "\r\n" + "欢迎点击链接欣赏\r\n" + "http://music.163.com/m/song?id=28445647&userid=37542553" + "本公众号当前支持服务：1.发送其他消息默认接入智能QnA Bot！\r\n 这条消息来自DefaultResponseMessage。";
 
             return responseMessage;
         }
