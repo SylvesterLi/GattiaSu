@@ -104,3 +104,4 @@ E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Senparc.CO2NET
 E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Senparc.Weixin.xml
 E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Senparc.Weixin.MP.xml
 E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Senparc.Weixin.MP.MvcExtension.xml
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\RestSharp.dll
