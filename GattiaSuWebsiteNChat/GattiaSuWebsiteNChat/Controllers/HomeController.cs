@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Media;
 
 namespace GattiaSuWebsiteNChat.Controllers
 {
@@ -78,6 +79,7 @@ namespace GattiaSuWebsiteNChat.Controllers
             try
             {
                 httpWebResponse = webRequest.GetResponse();
+                
                 Debug.WriteLine(httpWebResponse.GetType().ToString());
             }
             catch (Exception e)
@@ -86,6 +88,9 @@ namespace GattiaSuWebsiteNChat.Controllers
                 return;
             }
 
+
+            SoundPlayer player = new SoundPlayer(httpWebResponse.GetResponseStream());
+            player.Play();
             //Debug.WriteLine();
             //return View();
         }

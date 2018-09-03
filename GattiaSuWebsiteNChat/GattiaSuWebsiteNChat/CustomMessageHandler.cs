@@ -42,6 +42,10 @@ namespace GattiaSuWebsiteNChat
         {
             var result = new StringBuilder();
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
+            //responseMessage.Content
+
+            /*
+            
             if (requestMessage.Content == "家")
             {
 
@@ -62,8 +66,10 @@ namespace GattiaSuWebsiteNChat
             else
             {
                 //bot进行服务
-                responseMessage.Content = "接收到消息：\r\n"+requestMessage.Content;// + requestMessage.Content + "\r\n Gattia回复你：" + CognitiveService.BotService(requestMessage.Content);//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId          
+                responseMessage.Content = "接收到消息：\r\n" + requestMessage.Content;// + requestMessage.Content + "\r\n Gattia回复你：" + CognitiveService.BotService(requestMessage.Content);//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId          
             }
+            
+             */
 
             //\r\n用于换行，requestMessage.Content即用户发过来的文字内容
 
