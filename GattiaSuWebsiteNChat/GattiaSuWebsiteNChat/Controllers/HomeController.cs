@@ -91,6 +91,8 @@ namespace GattiaSuWebsiteNChat.Controllers
 
             SoundPlayer player = new SoundPlayer(httpWebResponse.GetResponseStream());
             player.Play();
+
+
             //Debug.WriteLine();
             //return View();
         }

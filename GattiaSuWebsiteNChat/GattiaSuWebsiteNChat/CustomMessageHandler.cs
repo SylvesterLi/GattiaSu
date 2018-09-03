@@ -44,6 +44,10 @@ namespace GattiaSuWebsiteNChat
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
             //responseMessage.Content
 
+            //功能预定：
+            //在微信公众平台得到语音
+
+
             /*
             
             if (requestMessage.Content == "家")
