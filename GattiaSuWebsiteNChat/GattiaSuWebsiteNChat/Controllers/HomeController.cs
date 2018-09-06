@@ -46,7 +46,7 @@ namespace GattiaSuWebsiteNChat.Controllers
             IRestResponse response = client.Execute(request);
 
 
-            
+
             //var request1 = new RestRequest(Method.POST);
             //request.AddHeader("postman-token", "af76cb09-c273-fa5d-1be6-9fb79db7c15c");
             //request.AddHeader("cache-control", "no-cache");
@@ -58,7 +58,7 @@ namespace GattiaSuWebsiteNChat.Controllers
             //IRestResponse response1 = client1.Execute(request1);
 
             string url = "https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId=399100a0-f981-4051-aefe-ac3f7299ad30";
-            string tokenString= "Bearer " + response.Content.ToString();
+            string tokenString = "Bearer " + response.Content.ToString();
 
             WebRequest webRequest = WebRequest.Create(url);
             webRequest.ContentType = "application/ssml+xml";
@@ -79,7 +79,7 @@ namespace GattiaSuWebsiteNChat.Controllers
             try
             {
                 httpWebResponse = webRequest.GetResponse();
-                
+
                 Debug.WriteLine(httpWebResponse.GetType().ToString());
             }
             catch (Exception e)
@@ -89,8 +89,35 @@ namespace GattiaSuWebsiteNChat.Controllers
             }
 
 
-            SoundPlayer player = new SoundPlayer(httpWebResponse.GetResponseStream());
-            player.Play();
+            //创建文件读取对象 
+            using (Stream fileReader = httpWebResponse.GetResponseStream())
+            {
+                //创建文件写入对象
+                
+                using (FileStream fileWrite = new FileStream("./1.wav", FileMode.OpenOrCreate))
+                {
+                    //指定文件一次读取时的字节长度
+                    byte[] by = new byte[1024 * 1024 * 10];
+                    int count = 0;
+                    while (true)
+                    {
+                        //将文件转换为二进制数据保存到内存中，同时返回读取字节的长度
+                        count = fileReader.Read(by, 0, by.Length);
+                        if (count == 0)//文件是否全部转换为二进制数据
+                        {
+                            break;
+                        }
+                        //将二进制数据转换为文件对象并保存到指定的物理路径中
+                        fileWrite.Write(by, 0, count);
+                    }
+                    Debug.WriteLine("OK");
+                }
+            }
+
+
+            //SoundPlayer player = new SoundPlayer(httpWebResponse.GetResponseStream());
+
+            //player.Play();
 
 
             //Debug.WriteLine();
@@ -98,6 +125,6 @@ namespace GattiaSuWebsiteNChat.Controllers
         }
 
 
-        
+
     }
 }

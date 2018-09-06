@@ -41,8 +41,12 @@ namespace GattiaSuWebsiteNChat
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
             var result = new StringBuilder();
-            var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
+            //var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
             //responseMessage.Content
+
+            var responseMessage= base.CreateResponseMessage<ResponseMessageMusic>();
+            //responseMessage.Music.MusicUrl
+            
 
             //功能预定：
             //在微信公众平台得到语音
