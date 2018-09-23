@@ -1,4 +1,9 @@
 # GattiaSu
 佳蒂亚树项目 微信后台
 
-不知道这个是怎么实现的
+
+- 暂时计划恢复功能：
+    - Custom Vision识别电力机车动车
+    - Computer Vision计算机视觉
+    - Bot Service机器人自动回复
+
