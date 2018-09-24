@@ -98,45 +98,51 @@ namespace GattiaSuWebsiteNChat
         {
             string result = "";
             string CVServiceSwitch = "";//CVServiceSwitch是根据上一次发送的内容 赋值
-            if (CurrentMessageContext.RequestMessages[CurrentMessageContext.RequestMessages.Count - 2] is RequestMessageText)
+            if (CurrentMessageContext.RequestMessages.Count > 0)
             {
-                CVServiceSwitch = (CurrentMessageContext.RequestMessages[CurrentMessageContext.RequestMessages.Count - 2] as RequestMessageText).Content;
-            }
-            //计算机视觉
-            switch (CVServiceSwitch)
+                if (CurrentMessageContext.RequestMessages[CurrentMessageContext.RequestMessages.Count - 2] is RequestMessageText)
+                {
+                    CVServiceSwitch = (CurrentMessageContext.RequestMessages[CurrentMessageContext.RequestMessages.Count - 2] as RequestMessageText).Content;
+                }
+
+                //计算机视觉
+                switch (CVServiceSwitch)
+                {
+                    case "1":
+                        //处理图片-计算机视觉
+                        //requestMessage.PicUrl
+                        result = CognitiveServiceTools.ComputerVision(requestMessage.PicUrl);
+
+                        break;
+                    case "2":
+                        //处理图片-火车识别
+                        result = CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
+                        break;
+                    case "3":
+                        result = "Current function have not been released!";
+
+                        break;
+
+                    default:
+                        result = "识别命令已失效，请重新选择识别功能！\r\n" + "发送[1]选择计算机视觉\r\n" + "发送[2]选择自定义影像\r\n" + "发送[3]选择微软Flow服务\r\n" + "If you need more help，contact me:NarisDrum@outlook.com";
+                        break;
+
+                }
+
+                var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
+
+
+                responseMessage.Content = result;
+                //这时候才赋值 返回回复消息
+                return responseMessage;
+            }//if
+            else
             {
-                case "1":
-                    //处理图片-计算机视觉
-                    //requestMessage.PicUrl
-                    result = CognitiveServiceTools.ComputerVision(requestMessage.PicUrl);
-
-                    break;
-                case "2":
-                    //处理图片-火车识别
-                    result= CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
-                    break;
-                case "3":
-                    
-
-                    break;
-
-                default:
-                    result = "识别命令已失效，请重新选择识别功能！\r\n" + "发送[1]选择计算机视觉\r\n" + "发送[2]选择自定义影像\r\n" + "发送[3]选择微软Flow服务\r\n" + "If you need more help，contact me:NarisDrum@outlook.com";
-                    break;
-
+                var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
+                responseMessage.Content= "识别命令已失效，请重新选择识别功能！\r\n\r\n" + "发送[1]选择计算机视觉\r\n\r\n" + "发送[2]选择自定义影像\r\n\r\n" + "发送[3]选择微软Flow服务\r\n\r\n" + "If you need more help，contact me:NarisDrum@outlook.com";
+                return responseMessage;
             }
-
-
-
-
-
-            var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
-
-
-            responseMessage.Content = result;
-            //这时候才赋值 返回回复消息
-            return responseMessage;
         }
-
     }
+
 }
