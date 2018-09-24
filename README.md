@@ -9,5 +9,7 @@
 
 > 当前进度：
 - 自定义影像已经恢复
-- Computer Vision需要导入SDK
+- Computer Vision已经完成
+    - 未使用SDK（https://docs.microsoft.com/zh-cn/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk）
+    - 使用REST API（https://eastus2.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fe/console）
 - Bot Service还没做

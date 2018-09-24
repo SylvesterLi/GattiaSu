@@ -212,3 +212,9 @@ C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWeb
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Release\GattiaSuWebsiteNChat.csproj.CopyComplete
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Release\GattiaSuWebsiteNChat.dll
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Release\GattiaSuWebsiteNChat.pdb
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.dll
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Microsoft.Rest.ClientRuntime.Azure.dll
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Microsoft.Rest.ClientRuntime.dll
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\Microsoft.Azure.CognitiveServices.Vision.ComputerVision.xml
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\RestSharp.xml
+E:\GitRepo\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Release\GattiaSuWebsiteNChat.csprojAssemblyReference.cache
