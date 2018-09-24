@@ -108,14 +108,14 @@ namespace GattiaSuWebsiteNChat
             switch (CVServiceSwitch)
             {
                 case "1":
-                    //处理图片
+                    //处理图片-计算机视觉
                     //requestMessage.PicUrl
 
 
                     break;
                 case "2":
-                    //处理图片
-
+                    //处理图片-火车识别
+                    result= CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
                     break;
                 case "3":
 
