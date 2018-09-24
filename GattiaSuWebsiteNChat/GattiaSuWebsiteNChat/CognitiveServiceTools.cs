@@ -23,9 +23,9 @@ namespace GattiaSuWebsiteNChat
 
             TrainJson trainJson = JsonConvert.DeserializeObject<TrainJson>(response.Content);
             string str = "ID:" + trainJson.id
-                + "\r\n为CRH的概率为：" + trainJson.predictions[0].probability * 100
-                + "%\r\n为普通机车的概率为" + trainJson.predictions[2].probability * 100
-                + "Session创建时间：" + trainJson.created.ToString() + "%\r\n本次识别服务结束。";
+                + "\r\n\r\n为CRH的概率为：" + trainJson.predictions[0].probability * 100
+                + "%\r\n\r\n为普通机车的概率为" + trainJson.predictions[2].probability * 100
+                + "%\r\n\r\nSession创建时间：" + trainJson.created.ToString() + "\r\n\r\n本次识别服务结束。";
 
 
             return str;//这个应该要序列化 拿回来再说吧
