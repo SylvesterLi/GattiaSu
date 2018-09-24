@@ -319,3 +319,4 @@ C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWeb
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Debug\GattiaSuWebsiteNChat.csproj.CopyComplete
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Debug\GattiaSuWebsiteNChat.dll
 C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\obj\Debug\GattiaSuWebsiteNChat.pdb
+C:\Users\SANG-Surface\Documents\GitHub\GattiaSu\GattiaSuWebsiteNChat\GattiaSuWebsiteNChat\bin\RestSharp.xml

@@ -18,11 +18,37 @@ namespace GattiaSuWebsiteNChat
             request.AddHeader("Prediction-Key", "15e04ba80f464cb3aa6afdd4b117a1d7");
             request.AddParameter("undefined", "{\"Url\": \""+url+"\"}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
+
+
+
+
+
             return response.Content;//这个应该要序列化 拿回来再说吧
+
+
         }
         public static  string ComputerVision(string url)
         {
+
+
+
             return "";
         }
+
+        
+    }
+
+
+    class TrainJson
+    {
+
+
+    }
+
+    class ComputerVisionJson
+    {
+
+
     }
 }
+

@@ -51,8 +51,6 @@ namespace GattiaSuWebsiteNChat
         /// <returns></returns>
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
-            var result = new StringBuilder();
-
 
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
@@ -110,7 +108,7 @@ namespace GattiaSuWebsiteNChat
                 case "1":
                     //处理图片-计算机视觉
                     //requestMessage.PicUrl
-
+                    result = CognitiveServiceTools.ComputerVision(requestMessage.PicUrl);
 
                     break;
                 case "2":
@@ -118,7 +116,7 @@ namespace GattiaSuWebsiteNChat
                     result= CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
                     break;
                 case "3":
-
+                    
 
                     break;
 
