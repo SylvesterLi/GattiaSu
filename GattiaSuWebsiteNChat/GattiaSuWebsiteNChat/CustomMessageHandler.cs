@@ -27,6 +27,12 @@ namespace GattiaSuWebsiteNChat
         }
 
 
+        /// <summary>
+        /// 默认回复
+        /// 关注、未知消息
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
         public override IResponseMessageBase DefaultResponseMessage(IRequestMessageBase requestMessage)
         {
             //在这里可以返回各种各样的消息给客户。详情参见博客
@@ -37,47 +43,36 @@ namespace GattiaSuWebsiteNChat
             return responseMessage;
         }
 
-
+        /// <summary>
+        /// 当接收到文本消息
+        /// 判断命令：1.[是CV就回复1] 2.[是计算机视觉就回复2] 3.[是Flow（暂时预定）就回复3]
+        /// </summary>
+        /// <param name="requestMessage"></param>
+        /// <returns></returns>
         public override IResponseMessageBase OnTextRequest(RequestMessageText requestMessage)
         {
-            var result = new StringBuilder();
-            //var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
-            //responseMessage.Content
 
-            var responseMessage= base.CreateResponseMessage<ResponseMessageMusic>();
-            //responseMessage.Music.MusicUrl
-            
+            var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
-            //功能预定：
-            //在微信公众平台得到语音
-
-
-            /*
-            
-            if (requestMessage.Content == "家")
+            if (requestMessage.Content == "1")
             {
-
-                responseMessage.Content = "当前家中情况如下：\r\n" + "温度：18℃\r\n" + "湿度：适合";//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId
-                return responseMessage;
-
+                responseMessage.Content = "下一步发送图片，进行计算机视觉识别";
             }
-            else if (requestMessage.Content == "车")
+            else if (requestMessage.Content == "2")
             {
-
-                responseMessage.Content = "正在查找您的车...";//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId
+                responseMessage.Content = "下一步发送图片，进行普通机车与动车组图像识别";
             }
-            else if (requestMessage.Content == "换")
+            else if (requestMessage.Content == "3")
             {
+                responseMessage.Content = "Microsoft Flow功能正在开发中，敬请期待！";
 
-                responseMessage.Content = "好的，您可以开启摄像头，我们能够根据您的心情给您更适合的放松";//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId
             }
             else
             {
-                //bot进行服务
-                responseMessage.Content = "接收到消息：\r\n" + requestMessage.Content;// + requestMessage.Content + "\r\n Gattia回复你：" + CognitiveService.BotService(requestMessage.Content);//这里的requestMessage.FromUserName也可以直接写成base.WeixinOpenId          
+                responseMessage.Content = "未知命令哦！Gattia Bot为您服务!(下一步将进行语音开发)";
             }
-            
-             */
+
+
 
             //\r\n用于换行，requestMessage.Content即用户发过来的文字内容
 
@@ -108,30 +103,38 @@ namespace GattiaSuWebsiteNChat
                 CVServiceSwitch = (CurrentMessageContext.RequestMessages[CurrentMessageContext.RequestMessages.Count - 2] as RequestMessageText).Content;
             }
             //计算机视觉
-            if (CVServiceSwitch == "换")
+            switch (CVServiceSwitch)
             {
-                //暂时不调了
+                case "1":
+                    //处理图片-计算机视觉
+                    //requestMessage.PicUrl
+                    result = CognitiveServiceTools.ComputerVision(requestMessage.PicUrl);
 
-                //float f = CognitiveService.ComputerVisionService(requestMessage.PicUrl);
-                //if (f==1)
-                //{
-                //    result = "今天心情不错嘛！\r\n"+"我给你的生活加了一点小浪漫哦~";
-                //}
-                //else
-                //{
-                result = "今天需要放松一下心情吗？\r\n你看起来很累！";
-                //}
+                    break;
+                case "2":
+                    //处理图片-火车识别
+                    result= CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
+                    break;
+                case "3":
+                    
+
+                    break;
+
+                default:
+                    result = "识别命令已失效，请重新选择识别功能！\r\n" + "发送[1]选择计算机视觉\r\n" + "发送[2]选择自定义影像\r\n" + "发送[3]选择微软Flow服务\r\n" + "If you need more help，contact me:NarisDrum@outlook.com";
+                    break;
 
             }
 
-            else
-            {
-                //此时CVServiceSwitch已经失效
-                result = "识别命令已失效，请重新选择识别功能！\r\n" + "If you need more help，contact me:NarisDrum@outlook.com";
-            }
+
+
+
+
             var responseMessage = base.CreateResponseMessage<ResponseMessageText>();
 
+
             responseMessage.Content = result;
+            //这时候才赋值 返回回复消息
             return responseMessage;
         }
 
