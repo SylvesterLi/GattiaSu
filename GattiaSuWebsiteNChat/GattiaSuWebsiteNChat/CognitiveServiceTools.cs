@@ -41,14 +41,14 @@ namespace GattiaSuWebsiteNChat
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("content-type", "application/json");
             request.AddHeader("ocp-apim-subscription-key", "0779bf9ee1904a799f46f5bbe95cbe28");
-            request.AddParameter("application/json", "{\"url\":\"https://cdn.clipkit.co/tenants/56/articles/images/000/001/759/medium/0ba681c7-9b8f-48a9-afb9-b14d4f12c544.jpg\"}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\"url\":\"" + url + "\"}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
 
             ComputerVisionJson coVision = JsonConvert.DeserializeObject<ComputerVisionJson>(response.Content);
-            
+
             string str = "请求ID:" + coVision.requestId
                 + "\r\n\r\n图片描述：" + coVision.description.captions[0].text
-                + "%\r\n\r\n可信度为：" + coVision.description.captions[0].confidence*100
+                + "\r\n\r\n可信度为：" + coVision.description.captions[0].confidence * 100
                 + "%\r\n\r\n本次识别服务结束。";
 
 
