@@ -9,7 +9,8 @@
 
 > 当前进度：
 - 自定义影像已经恢复
-        ![](cv.jpg)
+
+    ![](cv.jpg)
 
 - Computer Vision已经完成
     - 未使用SDK
@@ -17,6 +18,7 @@
     - 使用REST API
     https://eastus2.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fe/console
 
+        
         ![](comVision.jpg)
 
 - Bot Service还没做
