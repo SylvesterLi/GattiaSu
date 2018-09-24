@@ -116,7 +116,7 @@ namespace GattiaSuWebsiteNChat
                     result= CognitiveServiceTools.TrainCog(requestMessage.PicUrl);
                     break;
                 case "3":
-                    
+                    result = "Current function have not been released!";
 
                     break;
 
