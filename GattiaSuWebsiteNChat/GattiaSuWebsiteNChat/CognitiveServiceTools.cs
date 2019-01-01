@@ -35,7 +35,7 @@ namespace GattiaSuWebsiteNChat
         }
         public static string ComputerVision(string url)
         {
-            var client = new RestClient("https://eastus2.api.cognitive.microsoft.com/vision/v2.0/describe?maxCandidates=1&language=zh");
+            var client = new RestClient("https://eastus2.api.cognitive.microsoft.com/vision/v1.0/describe?maxCandidates=1&language=zh");
             var request = new RestRequest(Method.POST);
             request.AddHeader("postman-token", "f7993c74-eb20-5ef7-63c2-4c8ce895b7c8");
             request.AddHeader("cache-control", "no-cache");
